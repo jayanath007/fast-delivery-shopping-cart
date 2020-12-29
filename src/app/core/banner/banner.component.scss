@@ -4,12 +4,12 @@
 .banner {
   position: relative;
   width: 100%;
-  border-bottom: 2px solid $brand-warning;
-  border-top: 2px solid $brand-warning;
+  border-bottom: 2px solid $gray-dark;
+  border-top: 2px solid $gray-dark;
   background-color: $white-color;
    text-align: center;
   font-weight: bold;
-  color: $brand-success;
+  color: $brand-warning;
   height: 30px;
 }
 
