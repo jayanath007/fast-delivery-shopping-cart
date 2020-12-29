@@ -165,10 +165,11 @@ select.form-control.form-control-sm {
   .custom-file-control::before { border-radius: 0; }
 }
 
+  // change by lushan 
 // Input group
 .input-group {
-  display: block;
-  position: relative;
+  // display: block;
+  // position: relative;
   .input-group-addon,
   .input-group-btn {
     display: inline-block;
@@ -214,6 +215,20 @@ select.form-control.form-control-sm {
     }
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Validation states
 .has-success {

@@ -51,10 +51,6 @@ export class ProductService {
       .list<Product>('products', (ref) => ref.orderByChild('date'))
       .valueChanges()
       .pipe(map((arr) => arr.reverse()), catchError(this.handleError<Product[]>(`getProducts`))).subscribe((data) => {
-
-
-        console.log(data);
-
       });
 
 
