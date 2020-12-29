@@ -13,6 +13,9 @@ import { ProductsCacheService } from './shared/products-cache.service';
 import { ProductRatingService } from './shared/product-rating.service';
 
 import { SortPipe } from './shared/sort.pipe';
+import { MapModule } from '../map/map.module';
+import { ProductsHomeComponent } from './products-home/products-home.component';
+import { BannerComponent } from './banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -20,15 +23,19 @@ import { SortPipe } from './shared/sort.pipe';
     ProductsListComponent,
     ProductsListItemComponent,
     SortPipe,
-    RatingStarsComponent
+    RatingStarsComponent,
+    ProductsHomeComponent,
+    BannerComponent
   ],
-  imports: [SharedModule],
+  imports: [SharedModule,MapModule],
   exports: [
     ProductDetailComponent,
     ProductsListComponent,
     ProductsListItemComponent,
     SortPipe,
-    RatingStarsComponent
+    RatingStarsComponent,
+    ProductsHomeComponent,
+    BannerComponent
   ],
   providers: [SortPipe, FileUploadService, ProductsCacheService, ProductRatingService]
 })

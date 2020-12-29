@@ -20,7 +20,6 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { MapModule } from './map/map.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +39,6 @@ import { MapModule } from './map/map.module';
     ToastrModule.forRoot(),
     CoreModule,
     ProductsModule,
-    // MapModule,
     CheckoutModule,
     AccountModule,
     AdminModule
