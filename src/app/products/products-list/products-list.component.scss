@@ -1,6 +1,11 @@
 @import '~scss/helpers/variables';
 @import '~scss/helpers/mixins';
 
+
+.search-bar {
+  padding-top: 15px;
+}
+
 .products-list {
 
     &.loading {
