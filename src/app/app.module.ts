@@ -40,7 +40,7 @@ import { MapModule } from './map/map.module';
     ToastrModule.forRoot(),
     CoreModule,
     ProductsModule,
-    MapModule,
+    // MapModule,
     CheckoutModule,
     AccountModule,
     AdminModule
