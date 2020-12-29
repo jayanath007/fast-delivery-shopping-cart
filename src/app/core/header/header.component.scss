@@ -1,0 +1,12 @@
+@import '~scss/helpers/variables';
+@import '~scss/helpers/mixins';
+.navbar-header {
+    background-color: $gray-light;
+  }
+
+  .site-name {
+    color: $gray-dark;
+    font-size: $font-size-h4;
+    font-weight: bold;
+  }
+

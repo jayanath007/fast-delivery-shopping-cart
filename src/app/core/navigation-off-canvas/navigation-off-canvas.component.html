@@ -1,0 +1,76 @@
+
+<!-- Off-Canvas Mobile Menu-->
+<div class="offcanvas-container" id="mobile-menu" [ngClass]="{'active': offcanvasService.offcanvasNavigationOpen | async}">
+  <a *ngIf="user" class="account-link" routerLink="/account/profile" (click)="onNavigationClick()">
+    <div class="user-ava">
+      <img [src]="user.photoURL" [alt]="user.firstName">
+    </div>
+    <div class="user-info">
+      <span class="text-sm text-white opacity-60">Logged in as: </span>
+      <h6 class="user-name">{{ user.firstName }}  <span *ngIf="user?.roles?.admin"> (Admin)</span> </h6>
+    </div>
+  </a>
+  <nav class="offcanvas-menu">
+    <ul class="menu">
+      <li routerLinkActive="active">
+        <span>
+          <a routerLink="/home" (click)="onNavigationClick()">
+            <span>Home</span>
+          </a>
+        </span>
+      </li>
+      <li *ngIf="!user" routerLinkActive="active">
+        <span>
+          <a routerLink="/register-login" (click)="onNavigationClick()">
+            <span>Register/Login</span>
+          </a>
+        </span>
+      </li>
+      <li *ngIf="user" routerLinkActive="active">
+        <span>
+          <a routerLink="/account/profile" (click)="onNavigationClick()">
+            <span>My Profile</span>
+          </a>
+        </span>
+      </li>
+
+      <li  routerLinkActive="active">
+        <span>
+          <a routerLink="/account/firstClass" (click)="onNavigationClick()">
+            <span>Become a FirstClass Member</span>
+          </a>
+        </span>
+      </li>
+ 
+     <li routerLinkActive="active">
+        <span>
+          <a routerLink="/how-it-works" (click)="onNavigationClick()">
+            <span>How it Works</span>
+          </a>
+        </span>
+      </li>
+      <li routerLinkActive="active">
+        <span>
+          <a routerLink="/cart" (click)="onNavigationClick()">
+            <span>Cart</span>
+          </a>
+        </span>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/best-sellers" (click)="onNavigationClick()">
+          <span>Best Sellers</span>
+        </a>
+      </li>
+      <li *ngIf="user && user?.roles?.admin" routerLinkActive="active">
+        <a routerLink="/admin/add" (click)="onNavigationClick()">
+          <span>Add Product</span>
+        </a>
+      </li>
+      <li *ngIf="user">
+        <a href="" (click)="onLogout($event)">
+          <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
