@@ -1,5 +1,5 @@
-<div class="product-card" [ngClass]="{'product-list': displayMode === 'list'}">
-
+<div class="product-card">
+  <!-- [ngClass]="{'product-list': displayMode === 'list'}" -->
 
   <div class="product-badge text-danger" timeago [date]="product.date"></div>
 
@@ -15,7 +15,8 @@
       <a routerLink="/products/{{product.id}}">{{product.name}}</a>
     </h3>
     <h4 class="product-price"><app-price [product]="product"></app-price></h4>
-    <p *ngIf="displayMode === 'list'" class="hidden-xs-down">{{product.description}}</p>
+    <!-- *ngIf="displayMode === 'list'" -->
+    <p  class="hidden-xs-down">{{product.description}}</p>
     <div class="product-buttons">
       <button class="btn btn-primary btn-sm" (click)="onAddToCart()">Add to Cart</button>
 
