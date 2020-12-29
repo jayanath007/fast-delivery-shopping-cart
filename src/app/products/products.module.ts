@@ -15,7 +15,6 @@ import { ProductRatingService } from './shared/product-rating.service';
 import { SortPipe } from './shared/sort.pipe';
 import { MapModule } from '../map/map.module';
 import { ProductsHomeComponent } from './products-home/products-home.component';
-import { BannerComponent } from './banner/banner.component';
 import { SearchComponent } from './search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -28,7 +27,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SortPipe,
     RatingStarsComponent,
     ProductsHomeComponent,
-    BannerComponent,
     SearchComponent
   ],
   imports: [SharedModule,MapModule,NgbModule ],
@@ -39,7 +37,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SortPipe,
     RatingStarsComponent,
     ProductsHomeComponent,
-    BannerComponent,
   ],
   providers: [SortPipe, FileUploadService, ProductsCacheService, ProductRatingService]
 })

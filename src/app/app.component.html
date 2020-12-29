@@ -1,5 +1,6 @@
 <div class="main-wrapper" [ngClass]="{'offcanvas-open': offcanvasService.offcanvasNavigationOpen | async}">
     <app-navigation-off-canvas></app-navigation-off-canvas>
     <app-header></app-header>
+    <app-banner *ngIf="router.url === '/home'"></app-banner>
     <app-content></app-content>
 </div>

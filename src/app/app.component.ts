@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { OffcanvasService } from './core/shared/offcanvas.service';
 
 @Component({
@@ -9,5 +10,5 @@ import { OffcanvasService } from './core/shared/offcanvas.service';
 export class AppComponent {
   public products: any;
 
-  constructor(public offcanvasService: OffcanvasService) {}
+  constructor(public offcanvasService: OffcanvasService,public router: Router) {}
 }

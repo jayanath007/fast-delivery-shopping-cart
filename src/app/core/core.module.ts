@@ -19,8 +19,8 @@ import { OffcanvasService } from './shared/offcanvas.service';
 import { PromoService } from './shared/promo.service';
 import { UiService } from '../products/shared/ui.service';
 import { ProductsCacheService } from '../products/shared/products-cache.service';
-
 import { throwIfAlreadyLoaded } from './module-import-guard';
+import { BannerComponent } from './banner/banner.component';
 
 
 @NgModule({
@@ -31,6 +31,7 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
         FooterComponent,
         NavigationMainComponent,
         ToolbarCartComponent,
+        BannerComponent
     ],
     imports: [
         CommonModule,
@@ -42,7 +43,8 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
         SharedModule,
         NavigationOffCanvasComponent,
         HeaderComponent,
-        ContentComponent
+        ContentComponent,
+        BannerComponent
     ],
     providers: [
         ProductService,
