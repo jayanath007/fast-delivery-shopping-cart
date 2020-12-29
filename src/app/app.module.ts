@@ -41,7 +41,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ProductsModule,
     CheckoutModule,
     AccountModule,
-    AdminModule
+    AdminModule,
   ],
   bootstrap: [AppComponent]
 })

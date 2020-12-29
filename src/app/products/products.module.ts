@@ -17,6 +17,7 @@ import { MapModule } from '../map/map.module';
 import { ProductsHomeComponent } from './products-home/products-home.component';
 import { SearchComponent } from './search/search.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TimeagoModule } from 'ngx-timeago';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductsHomeComponent,
     SearchComponent
   ],
-  imports: [SharedModule,MapModule,NgbModule ],
+  imports: [SharedModule,MapModule,NgbModule,    TimeagoModule.forRoot(), ],
   exports: [
     ProductDetailComponent,
     ProductsListComponent,
