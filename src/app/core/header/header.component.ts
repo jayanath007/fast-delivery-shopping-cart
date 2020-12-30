@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   public onLogOut(e: Event) {
     this.authService.signOut();
-    this.router.navigate(['/register-login']);
+    this.router.navigate(['/login']);
     e.preventDefault();
   }
 

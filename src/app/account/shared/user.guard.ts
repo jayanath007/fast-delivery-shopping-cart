@@ -23,7 +23,7 @@ export class UserGuard implements CanActivate {
       map((user) => (user ? true : false)),
       tap((authorized) => {
         if (!authorized) {
-          this.router.navigate(['/register-login']);
+          this.router.navigate(['/login']);
         }
       })
     );

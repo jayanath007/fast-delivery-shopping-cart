@@ -15,7 +15,7 @@
     <div class="inner">
       <div class="tools">
         <div class="account">
-          <a *ngIf="!user; else whenLoggedIn" routerLink="/register-login"></a>
+          <a *ngIf="!user; else whenLoggedIn" routerLink="/login"></a>
 
           <ng-template #whenLoggedIn>
             <a routerLink="/account/profile"></a>
