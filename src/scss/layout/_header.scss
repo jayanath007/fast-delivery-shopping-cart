@@ -482,6 +482,7 @@
   @extend %sub-menu;
   margin-top: 7px !important;
   text-align: left;
+  z-index: 9011;
 }
 .toolbar .account {
   > .toolbar-dropdown {

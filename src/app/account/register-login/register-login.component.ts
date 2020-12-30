@@ -72,6 +72,16 @@ export class RegisterLoginComponent implements OnInit {
     }
   }
 
+
+  
+  public onLoginWithGoogle() {
+    this.authenticationService.googleLogin().then(
+        () => {
+          this.messageService.add('Login successful!');
+          this.router.navigate(['/home']);
+        }
+      );
+  }
   public onLogin() {
     this.authenticationService
       .emailLogin(this.loginForm.value.email, this.loginForm.value.password)
