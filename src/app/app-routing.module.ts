@@ -1,8 +1,6 @@
-import { PasswordResetRequestComponent } from './account/password-reset/password-reset-request/password-reset-request.component';
 import { LoginComponent } from './account/login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { AddEditComponent } from './admin/add-edit/add-edit.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
