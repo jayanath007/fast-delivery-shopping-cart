@@ -41,6 +41,8 @@ export class RegisterLoginComponent implements OnInit {
     this.registerForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, Validators.required),
+      firstName: new FormControl(null, Validators.required),
+      lastName: new FormControl(null, Validators.required),
       confirmPassword: new FormControl(null, Validators.required)
     });
   }
@@ -51,7 +53,8 @@ export class RegisterLoginComponent implements OnInit {
       this.registerForm.controls.password.setErrors({ password: true });
       this.registerForm.controls.confirmPassword.setErrors({ confirmPassword: true });
     } else {
-      this.authenticationService.emailSignUp(this.registerForm.value.email, this.registerForm.value.password)
+
+      this.authenticationService.newUserSignUp(this.registerForm.value)
       .then(
         () => {
           this.messageService.add('Account created successfully. Please login with your new credentials!');

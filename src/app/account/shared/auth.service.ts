@@ -3,8 +3,8 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 
-import { Observable ,  of } from 'rxjs';
-import { take ,  takeUntil ,  switchMap, map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { take, takeUntil, switchMap, map } from 'rxjs/operators';
 
 import { MessageService } from '../../messages/message.service';
 import { User, Roles } from '../../models/user.model';
@@ -50,12 +50,14 @@ export class AuthService {
     );
   }
 
-  public emailSignUp(email: string, password: string) {
+  public newUserSignUp(newUser: any) {
     return this.afAuth.auth
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(newUser.email, newUser.password)
       .then(
         (user) => {
-          this.updateNewUser(user);
+          // var guid = G
+          var userInfor = { user, ...newUser };
+          this.updateNewUser(userInfor);
         },
         (error) => {
           throw error;
@@ -90,7 +92,7 @@ export class AuthService {
       .then(() => {
         this.messageService.add('Password has been updated!');
       })
-      .catch(function(error) {
+      .catch(function (error) {
         throw error;
       });
   }
@@ -102,7 +104,7 @@ export class AuthService {
         this.updateExistingUser({ email: email });
         this.messageService.add('User email have been updated!');
       })
-      .catch(function(error) {
+      .catch(function (error) {
         throw error;
       });
   }

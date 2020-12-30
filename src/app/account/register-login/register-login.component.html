@@ -8,7 +8,7 @@
 
           <div class="row margin-bottom-1x">
             <div class="col-xl-4 col-md-6 col-sm-4">
-              <a class="btn btn-sm btn-block google-btn" (click)="authenticationService.googleLogin()" >
+              <a class="btn btn-sm btn-block google-btn" (click)="onLoginWithGoogle()" >
                 <i class="socicon-googleplus"></i>&nbsp;Google+ login</a>
             </div>
           </div>
@@ -49,19 +49,7 @@
         <p>Registration takes less than a minute but gives you full control over your orders.</p>
         <form [formGroup]="registerForm" class="row" (ngSubmit)="onRegister()">
 
-          <!-- <div class="col-sm-6">
-            <div class="form-group">
-              <label for="reg-fn">First Name</label>
-              <input class="form-control" formControlName="firstName" type="text" id="reg-fn" required="">
-            </div>
-          </div> -->
-
-          <!-- <div class="col-sm-6">
-            <div class="form-group">
-              <label for="reg-ln">Last Name</label>
-              <input class="form-control" formControlName="lastName" type="text" id="reg-ln" required="">
-            </div>
-          </div> -->
+   
 
           <div class="col-sm-12">
             <div class="form-group" [ngClass]="{'has-danger': !registerForm.get('email').valid && registerForm.get('email').touched}">
@@ -69,6 +57,20 @@
               <input class="form-control" formControlName="email" type="email" id="reg-email" required>
             </div>
           </div>
+
+          <div class="col-sm-6">
+            <div class="form-group" [ngClass]="{'has-danger': !registerForm.get('email').valid && registerForm.get('email').touched}">
+              <label for="reg-fn">First Name</label>
+              <input class="form-control" formControlName="firstName" type="text" id="reg-fn" required="">
+            </div>
+          </div> 
+
+           <div class="col-sm-6">
+            <div class="form-group"[ngClass]="{'has-danger': !registerForm.get('email').valid && registerForm.get('email').touched}">
+              <label for="reg-ln">Last Name</label>
+              <input class="form-control" formControlName="lastName" type="text" id="reg-ln" required="">
+            </div>
+          </div> 
 
           <!-- <div class="col-sm-6">
             <div class="form-group">

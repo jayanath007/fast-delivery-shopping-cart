@@ -1,3 +1,4 @@
+import { application } from '../../environments/environment';
 import { Order } from './order.model';
 
 export interface Roles {
@@ -19,7 +20,7 @@ export class User {
     this.email = authData.email;
     this.firstName = authData.firstName ? authData.firstName : '';
     this.lastName = authData.lastName ? authData.lastName : '';
-    this.photoURL = authData.photoURL
+    this.photoURL = authData.photoURL ?  authData.photoURL : application.defaultUser;
     this.roles = {
       admin: false
     };

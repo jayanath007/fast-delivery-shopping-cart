@@ -1,13 +1,6 @@
 export const environment = {
-  production: true,
+  production: false,
   firebase: {
-    // apiKey: 'AIzaSyCXVTjTuBUXf-UWlpKfKHjomfPezutmPwI',
-    // authDomain: 'cas-fee-shop.firebaseapp.com',
-    // databaseURL: 'https://cas-fee-shop.firebaseio.com',
-    // projectId: 'cas-fee-shop',
-    // storageBucket: 'cas-fee-shop.appspot.com',
-    // messagingSenderId: '323643286137'
-
     apiKey: "AIzaSyAz5DChTHUHSGcHR3BOLvjDFfLTfZQ1E8I",
     authDomain: "online-shop-299505.firebaseapp.com",
     databaseURL: "https://online-shop-299505-default-rtdb.firebaseio.com",
@@ -18,3 +11,7 @@ export const environment = {
     measurementId: "G-YEBDLLDVV9"
   }
 };
+
+export const application = {
+  defaultUser: "https://firebasestorage.googleapis.com/v0/b/online-shop-299505.appspot.com/o/app-images%2Fdefault-user.jpg?alt=media&token=0fde39a8-15d9-4fba-a750-b7c67e23443a",
+}
