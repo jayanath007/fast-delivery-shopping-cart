@@ -1,3 +1,4 @@
+import { PasswordResetRequestComponent } from './account/password-reset/password-reset-request/password-reset-request.component';
 import { LoginComponent } from './account/login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -16,6 +17,8 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
 import { CompleteComponent } from './checkout/complete/complete.component';
 import { ProductsHomeComponent } from './products/products-home/products-home.component';
 import { UserRegistrationComponent } from './account/user-registration/user-registration.component';
+import { EmailConfirmationComponent } from './account/password-reset/email-confirmation/email-confirmation.component';
+import { ConfirmPasswordResetComponent } from './account/password-reset/confirm-password-reset/confirm-password-reset.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -43,7 +46,19 @@ const routes: Routes = [
     ]
   },
   { path: 'order-complete', component: CompleteComponent },
-  { path: '**', component: PageNotFoundComponent }
+ 
+  {
+    path: 'forgot-password',
+    component: EmailConfirmationComponent,
+    data: { title: 'Forgot Password' }
+  },
+  {
+    path: 'email/action',
+    component: ConfirmPasswordResetComponent,
+    data: { title: 'Confirm Email Address' }
+  },
+  { path: '**', component: PageNotFoundComponent },
+
 ];
 
 @NgModule({

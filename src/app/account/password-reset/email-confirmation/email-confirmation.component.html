@@ -1,0 +1,26 @@
+<form [formGroup]="frmPasswordReset" (submit)="SendPasswordResetRequest()">
+  <div class="field has-text-left">
+    <label class="label">Email Address: </label>
+    <div class="control has-icons-left">
+     <input formControlName="email" class="input is-focused" type="email">
+      <span class="icon is-small is-left">
+        <!-- <fa-icon [icon]="faEnvelope"></fa-icon> -->
+      </span>
+    </div>
+
+    <div class="has-text-danger">
+      Email is required!
+    </div>
+
+    <div class="has-text-danger" >
+      A valid email is required!
+    </div>
+  </div>
+
+  <div class="field">
+    <button [disabled]="frmPasswordReset.invalid" class="button is-block is-primary has-text-white is-fullwidth ">
+      <!-- <fa-icon [icon]="faSigninIcon"></fa-icon> -->
+      Send Request
+    </button>
+  </div>
+</form>
