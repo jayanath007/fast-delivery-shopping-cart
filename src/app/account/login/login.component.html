@@ -1,4 +1,4 @@
-<app-page-title title="Login / Register Account" [children]="[{title: 'Account', link: '/account'}, {title: 'Login / Register'}]"></app-page-title>
+<app-page-title title="Login" ></app-page-title>
 
 <!-- Page Content-->
 <div class="container padding-bottom-3x mb-2">
@@ -40,7 +40,12 @@
         <div class="text-center text-sm-right">
           <button [disabled]="!loginForm.valid"class="btn btn-primary margin-bottom-none" type="submit">Login</button>
         </div>
+
+        <a routerLink="/user-registration">
+          <span>User Registration</span>
+        </a>
       </form>
+    
     </div>
   </div>
 </div>

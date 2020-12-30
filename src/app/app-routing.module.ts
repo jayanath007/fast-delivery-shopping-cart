@@ -15,6 +15,7 @@ import { ProductsListComponent } from './products/products-list/products-list.co
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { CompleteComponent } from './checkout/complete/complete.component';
 import { ProductsHomeComponent } from './products/products-home/products-home.component';
+import { UserRegistrationComponent } from './account/user-registration/user-registration.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -30,6 +31,7 @@ const routes: Routes = [
   },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'register-login', component: RegisterLoginComponent },
+  { path: 'user-registration', component: UserRegistrationComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'account',

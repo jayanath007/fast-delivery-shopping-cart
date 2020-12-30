@@ -1,3 +1,4 @@
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,7 +17,8 @@ import { LoginComponent } from './login/login.component';
         ProfileComponent,
         OrdersComponent,
         RegisterLoginComponent,
-        LoginComponent
+        LoginComponent,
+        UserRegistrationComponent
     ],
     imports: [
         CommonModule,
