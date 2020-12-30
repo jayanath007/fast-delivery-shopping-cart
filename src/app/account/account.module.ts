@@ -17,7 +17,7 @@ import { RegisterLoginComponent } from './register-login/register-login.componen
         ProfileComponent,
         OrdersComponent,
         RegisterLoginComponent, 
-               LoginComponent,
+        LoginComponent,
         UserRegistrationComponent,
         EmailConfirmationComponent,
         ConfirmPasswordResetComponent,
