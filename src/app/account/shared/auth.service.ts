@@ -1,3 +1,4 @@
+import { User } from './../../models/user.model';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -7,7 +8,7 @@ import { Observable, of } from 'rxjs';
 import { take, takeUntil, switchMap, map } from 'rxjs/operators';
 
 import { MessageService } from '../../messages/message.service';
-import { User, Roles } from '../../models/user.model';
+
 
 @Injectable()
 export class AuthService {
@@ -54,9 +55,10 @@ export class AuthService {
     return this.afAuth.auth
       .createUserWithEmailAndPassword(newUser.email, newUser.password)
       .then(
-        (user) => {
+        (data: firebase.auth.UserCredential) => {
           // var guid = G
-          var userInfor = { user, ...newUser };
+          var user = data.user;
+          var userInfor = { ...newUser, uid: user.uid };
           this.updateNewUser(userInfor);
         },
         (error) => {
