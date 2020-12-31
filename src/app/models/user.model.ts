@@ -15,12 +15,22 @@ export class User {
   public orders?: object;
   public confirmPassword?: string;
   public uid?: string;
+  public role?: string;
+  public subscription?: string;
+  public phoneNumber?: string;
+  public address?: string;
 
   constructor(authData) {
     this.email = authData.email;
     this.firstName = authData.firstName ? authData.firstName : '';
     this.lastName = authData.lastName ? authData.lastName : '';
     this.photoURL = authData.photoURL ?  authData.photoURL : application.defaultUser;
+    this.role = authData.role ? authData.role : '';
+    this.subscription = authData.subscription ? authData.subscription : '';
+
+    this.phoneNumber = authData.phoneNumber ? authData.phoneNumber : '';
+    this.address = authData.address ? authData.address : '';
+
     this.roles = {
       admin: false
     };

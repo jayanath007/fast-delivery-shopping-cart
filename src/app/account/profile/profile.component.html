@@ -22,12 +22,55 @@
       <div class="form-control-feedback" *ngIf="formProfile.get('lastName').invalid && formProfile.get('lastName').touched">Please enter your lastname!</div>
     </div>
   </div>
+
+
+  <div class="col-md-6">
+    <div class="form-group">
+      <div class="form-group">
+        <label for="role">TYPE Roles</label>
+        <select class="form-control" formControlName="role" id="role" >
+          <option value="buyer">buyer</option>
+          <option value="Merchant">Merchant</option>
+          <option value="buyerMerchant">Become a buyer and merchant both</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="subscription">Choose Price Plan or Subscription</label>
+      <select class="form-control" formControlName="subscription" id="subscription">
+        <option value="free">Free </option>
+        <option value="firstClass">First Class Member</option>
+        <option value="merchant">Merchant</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="account-email">Phone number</label>
+      <input class="form-control"  type="text" id="phoneNumber" formControlName="phoneNumber">
+    </div>
+  </div>
+
+  <div class="col-md-12">
+    <div class="form-group">
+      <label for="account-email">Address </label>
+      <input class="form-control"  type="text" id="address" formControlName="address">
+    </div>
+  </div>
+
+
   <div class="col-md-6">
     <div class="form-group">
       <label for="account-ln">Change Profile Pic</label>
       <input  type="file" id="photos" #photos (change)="onFileSelected($event)" >
     </div>
   </div>
+
 
 
   <!-- <div class="col-md-6">

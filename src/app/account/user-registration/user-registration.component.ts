@@ -37,7 +37,9 @@ export class UserRegistrationComponent  implements OnInit {
       password: new FormControl(null, Validators.required),
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
-      confirmPassword: new FormControl(null, Validators.required)
+      confirmPassword: new FormControl(null, Validators.required),
+      role: new FormControl("buyer", Validators.required),
+      subscription: new FormControl("free", Validators.required),
     });
   }
 

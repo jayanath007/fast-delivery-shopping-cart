@@ -1,4 +1,4 @@
-<app-page-title title="User Register " ></app-page-title>
+<app-page-title title="User Register "></app-page-title>
 
 <!-- Page Content-->
 <div class="container padding-bottom-3x mb-2">
@@ -9,28 +9,58 @@
       <p>Registration takes less than a minute but gives you full control over your orders.</p>
       <form [formGroup]="registerForm" class="row" (ngSubmit)="onRegister()">
 
- 
 
         <div class="col-sm-12">
-          <div class="form-group" [ngClass]="{'has-danger': !registerForm.get('email').valid && registerForm.get('email').touched}">
+          <div class="form-group"
+            [ngClass]="{'has-danger': !registerForm.get('email').valid && registerForm.get('email').touched}">
             <label for="reg-email">E-mail Address</label>
             <input class="form-control" formControlName="email" type="email" id="reg-email" required>
           </div>
         </div>
 
+
+        <div class="col-sm-12">
+
+          <div class="form-group">
+            <label for="role">TYPE Roles</label>
+            <select class="form-control" formControlName="role" id="role" >
+              <option value="buyer">buyer</option>
+              <option value="Merchant">Merchant</option>
+              <option value="buyerMerchant">Become a buyer and merchant both</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="col-sm-12">
+
+          <div class="form-group">
+            <label for="subscription">Choose Price Plan or Subscription</label>
+            <select class="form-control" formControlName="subscription" id="subscription">
+              <option value="free">Free </option>
+              <option value="firstClass">First Class Member</option>
+              <option value="merchant">Merchant</option>
+            </select>
+          </div>
+
+        </div>
+
+
         <div class="col-sm-6">
-          <div class="form-group" [ngClass]="{'has-danger': !registerForm.get('email').valid && registerForm.get('email').touched}">
+          <div class="form-group"
+            [ngClass]="{'has-danger': !registerForm.get('email').valid && registerForm.get('email').touched}">
             <label for="reg-fn">First Name</label>
             <input class="form-control" formControlName="firstName" type="text" id="reg-fn" required="">
           </div>
-        </div> 
+        </div>
 
-         <div class="col-sm-6">
-          <div class="form-group"[ngClass]="{'has-danger': !registerForm.get('email').valid && registerForm.get('email').touched}">
+        <div class="col-sm-6">
+          <div class="form-group"
+            [ngClass]="{'has-danger': !registerForm.get('email').valid && registerForm.get('email').touched}">
             <label for="reg-ln">Last Name</label>
             <input class="form-control" formControlName="lastName" type="text" id="reg-ln" required="">
           </div>
-        </div> 
+        </div>
 
         <!-- <div class="col-sm-6">
           <div class="form-group">
@@ -39,18 +69,21 @@
           </div>
         </div> -->
 
-          <div class="col-sm-6">
-            <div class="form-group" [ngClass]="{'has-danger': !registerForm.get('password').valid && registerForm.get('password').touched}">
-              <label for="reg-pass">Password</label>
-              <input class="form-control" formControlName="password" type="password" id="reg-pass" required>
-            </div>
+        <div class="col-sm-6">
+          <div class="form-group"
+            [ngClass]="{'has-danger': !registerForm.get('password').valid && registerForm.get('password').touched}">
+            <label for="reg-pass">Password</label>
+            <input class="form-control" formControlName="password" type="password" id="reg-pass" required>
           </div>
-          <div class="col-sm-6">
-            <div class="form-group" [ngClass]="{'has-danger': !registerForm.get('confirmPassword').valid && registerForm.get('confirmPassword').touched}">
-              <label for="reg-pass-confirm">Confirm Password</label>
-              <input class="form-control" formControlName="confirmPassword" type="password" id="reg-pass-confirm" required>
-            </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group"
+            [ngClass]="{'has-danger': !registerForm.get('confirmPassword').valid && registerForm.get('confirmPassword').touched}">
+            <label for="reg-pass-confirm">Confirm Password</label>
+            <input class="form-control" formControlName="confirmPassword" type="password" id="reg-pass-confirm"
+              required>
           </div>
+        </div>
 
         <div class="col-12 text-center text-sm-right">
 
@@ -60,9 +93,11 @@
             </div>
           </div>
 
-          <button [disabled]="!registerForm.valid" class="btn btn-primary margin-bottom-none" type="submit">Register</button>
+          <button [disabled]="!registerForm.valid" class="btn btn-primary margin-bottom-none"
+            type="submit">Register</button>
         </div>
-        <p>By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications from us and can opt out at any time.</p>
+        <p>By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS notifications
+          from us and can opt out at any time.</p>
       </form>
     </div>
   </div>

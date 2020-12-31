@@ -25,19 +25,26 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   onFileSelected() {
     const files: FileList = this.photos.nativeElement.files;
-    this.authService.updateUserImage( this.user, files );
+    this.authService.updateUserImage(this.user, files);
   }
 
-  
+
   ngOnInit() {
     this.initFormGroup();
     this.authSubscription = this.authService.user.subscribe(
       user => {
         if (user) {
+
+        
+
           this.formProfile.patchValue({
             firstName: user.firstName,
             lastName: user.lastName,
-            email: user.email
+            email: user.email,
+            role: user.role,
+            subscription: user.subscription,
+            phoneNumber: user.phoneNumber,
+            address: user.address
           });
           this.user = user;
         }
@@ -52,6 +59,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
       email: new FormControl(null, Validators.email),
       password: new FormControl(null),
       confirmPassword: new FormControl(null),
+      role: new FormControl(null),
+      subscription: new FormControl(null),
+      phoneNumber: new FormControl(null),
+      address: new FormControl(null),
     });
   }
 
@@ -60,16 +71,20 @@ export class ProfileComponent implements OnInit, OnDestroy {
     // Update Email
     if (this.user.email !== this.formProfile.value.email) {
       this.authService.updateEmail(this.formProfile.value.email)
-      .catch(
-        error => {
-          this.profileErrors = error.message;
-          this.formProfile.patchValue({ email: this.user.email });
-        }
-      );
+        .catch(
+          error => {
+            this.profileErrors = error.message;
+            this.formProfile.patchValue({ email: this.user.email });
+          }
+        );
     }
 
     // Update Profile (Firstname, Lastname)
-    if (this.user.firstName !== this.formProfile.value.firstName || this.user.lastName !== this.formProfile.value.lastName) {
+    if (this.user.firstName !== this.formProfile.value.firstName || this.user.lastName !== this.formProfile.value.lastName
+      || this.user.role !== this.formProfile.value.role
+      || this.user.subscription !== this.formProfile.value.subscription
+      || this.user.phoneNumber !== this.formProfile.value.phoneNumber
+      || this.user.address !== this.formProfile.value.address) {
       this.authService.updateProfile(this.formProfile.value);
     }
 
@@ -77,11 +92,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
     if (this.formProfile.value.password && this.formProfile.value.confirmPassword
       && (this.formProfile.value.password === this.formProfile.value.confirmPassword)) {
       this.authService.updatePassword(this.formProfile.value.password)
-      .catch(
-        error => {
-          this.profileErrors = error.message;
-        }
-      );
+        .catch(
+          error => {
+            this.profileErrors = error.message;
+          }
+        );
     }
   }
 

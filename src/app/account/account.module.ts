@@ -11,6 +11,7 @@ import { EmailConfirmationComponent } from './password-reset/email-confirmation/
 import { ConfirmPasswordResetComponent } from './password-reset/confirm-password-reset/confirm-password-reset.component';
 import { RegisterLoginComponent } from './register-login/register-login.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
         CommonModule,
         SharedModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        NgbModule
     ],
     exports: [
         SharedModule
