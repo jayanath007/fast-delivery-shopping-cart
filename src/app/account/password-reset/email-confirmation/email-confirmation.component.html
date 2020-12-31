@@ -1,26 +1,40 @@
-<form [formGroup]="frmPasswordReset" (submit)="SendPasswordResetRequest()">
-  <div class="field has-text-left">
-    <label class="label">Email Address: </label>
-    <div class="control has-icons-left">
-     <input formControlName="email" class="input is-focused" type="email">
-      <span class="icon is-small is-left">
-        <!-- <fa-icon [icon]="faEnvelope"></fa-icon> -->
-      </span>
-    </div>
+<app-page-title title="Forgot Password"></app-page-title>
 
-    <div class="has-text-danger">
-      Email is required!
-    </div>
+<div class="container padding-bottom-3x mb-2">
+  <div class="row">
+    <div class="col-md-6">
 
-    <div class="has-text-danger" >
-      A valid email is required!
+      <form class="login-box" [formGroup]="frmPasswordReset" (ngSubmit)="SendPasswordResetRequest()">
+
+        <h3 class="margin-bottom-1x">Send verification code to your email</h3>
+
+        <div class="form-group input-group"
+          [ngClass]="{'has-danger': !frmPasswordReset.get('email').valid && frmPasswordReset.get('email').touched}">
+          <input class="form-control" formControlName="email" type="email" placeholder="Email" required="">
+          <span class="input-group-addon">
+            <i class="icon-mail"></i>
+          </span>
+          <div *ngIf="!frmPasswordReset.get('email').valid && frmPasswordReset.get('email').touched"
+            class="form-control-feedback">
+            Be sure to enter a valid, existing Email.
+          </div>
+          <div *ngIf="errorMessage" class="form-control-feedback">
+            {{errorMessage}}
+          </div>
+        </div>
+
+
+
+        <div class="text-center text-sm-right">
+          <button [disabled]="frmPasswordReset.invalid" class="btn btn-primary margin-bottom-none" type="submit">Send
+            Request</button>
+        </div>
+
+        <div class="d-flex flex-wrap justify-content-between padding-bottom-1x">
+          <p>{{verificationCodeSendMessage}} </p>
+        </div>
+
+      </form>
     </div>
   </div>
-
-  <div class="field">
-    <button [disabled]="frmPasswordReset.invalid" class="button is-block is-primary has-text-white is-fullwidth ">
-      <!-- <fa-icon [icon]="faSigninIcon"></fa-icon> -->
-      Send Request
-    </button>
-  </div>
-</form>
+</div>
