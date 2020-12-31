@@ -22,6 +22,14 @@
       <div class="form-control-feedback" *ngIf="formProfile.get('lastName').invalid && formProfile.get('lastName').touched">Please enter your lastname!</div>
     </div>
   </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label for="account-ln">Change Profile Pic</label>
+      <input  type="file" id="photos" #photos (change)="onFileSelected($event)" >
+    </div>
+  </div>
+
+
   <!-- <div class="col-md-6">
     <div class="form-group">
       <label for="account-pass">New Password</label>

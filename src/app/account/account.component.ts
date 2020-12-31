@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 export class AccountComponent implements OnInit, OnDestroy {
   public user: User;
   private authSubscription: Subscription;
-  @ViewChild('photos', { static: true }) photos;
+
 
   constructor(
     private authService: AuthService,
@@ -24,10 +24,6 @@ export class AccountComponent implements OnInit, OnDestroy {
   ) { }
 
 
-  onFileSelected() {
-    const files: FileList = this.photos.nativeElement.files;
-    this.authService.updateUserImage( this.user, files );
-  }
 
 
 

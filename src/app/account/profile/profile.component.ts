@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 
 import { AuthService } from '../shared/auth.service';
@@ -16,9 +16,17 @@ export class ProfileComponent implements OnInit, OnDestroy {
   public formProfile: FormGroup;
   public profileErrors: string;
   private user: User;
+  @ViewChild('photos', { static: true }) photos;
+
 
   constructor(private authService: AuthService) { }
 
+
+
+  onFileSelected() {
+    const files: FileList = this.photos.nativeElement.files;
+    this.authService.updateUserImage( this.user, files );
+  }
 
   
   ngOnInit() {
