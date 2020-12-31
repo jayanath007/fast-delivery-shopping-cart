@@ -19,6 +19,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   constructor(private authService: AuthService) { }
 
+
+  
   ngOnInit() {
     this.initFormGroup();
     this.authSubscription = this.authService.user.subscribe(

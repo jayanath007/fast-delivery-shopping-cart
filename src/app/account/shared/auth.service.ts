@@ -8,6 +8,7 @@ import { Observable, of } from 'rxjs';
 import { take, takeUntil, switchMap, map } from 'rxjs/operators';
 
 import { MessageService } from '../../messages/message.service';
+import { FileUploadService } from '../../products/shared/file-upload.service';
 
 
 @Injectable()
@@ -17,8 +18,10 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private db: AngularFireDatabase,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private uploadService: FileUploadService,
   ) {
+
     this.user = this.afAuth.authState
       .pipe(
         switchMap((auth) => {
@@ -38,6 +41,22 @@ export class AuthService {
         })
       );
   }
+
+
+
+  public updateUserImage(userData: User, files: FileList ) {
+       this.uploadService
+      .startUpload({files:files})
+      .then(async (task) => {
+        var url = await task.ref.getDownloadURL();
+        var userInfor = { ...userData, photoURL: url };
+        this.updateProfile(userInfor);
+      })
+      .catch((error) => {
+        return error;
+      });
+  }
+
 
   public googleLogin() {
     const provider = new firebase.auth.GoogleAuthProvider();

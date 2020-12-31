@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 
 import { AuthService } from './shared/auth.service';
 import { Router } from '@angular/router';
@@ -15,12 +15,20 @@ import { Subscription } from 'rxjs/internal/Subscription';
 export class AccountComponent implements OnInit, OnDestroy {
   public user: User;
   private authSubscription: Subscription;
-  
+  @ViewChild('photos', { static: true }) photos;
+
   constructor(
     private authService: AuthService,
     public router: Router,
     public orderService: OrderService
-  ) {}
+  ) { }
+
+
+  onFileSelected() {
+    const files: FileList = this.photos.nativeElement.files;
+    this.authService.updateUserImage( this.user, files );
+  }
+
 
 
   ngOnInit() {

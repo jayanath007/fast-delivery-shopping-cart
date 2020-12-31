@@ -38,6 +38,29 @@ export class FileUploadService {
       return this.task$;
   }
 
+
+  public userImageUpload(data) {
+    // The File object
+    const file = data.files.item(0);
+
+    // Client-side validation example
+    if (file.type.split('/')[0] !== 'image') {
+      console.error('unsupported file type :( ');
+      throw new Error('upload failed, unsupported file type');
+    }
+
+    // The storage path
+    const path = `user-images/${new Date().getTime()}_${file}`;
+
+    // The main task
+    this.task$ = this.storage.upload(path, file);
+
+    // the percentage
+    this.percentage$ = this.task$.percentageChanges();
+
+    return this.task$;
+}
+
   public deleteFile(files: string[]) {
     if (files) {
       return files.map((filePath) => {
