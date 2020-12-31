@@ -25,11 +25,6 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
     this.authSubscription = this.authService.user.subscribe(
       user => {
         if (user) {
-          this.formProfile.patchValue({
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email: user.email
-          });
           this.user = user;
         }
       }
@@ -45,16 +40,25 @@ export class ChangePasswordComponent implements OnInit, OnDestroy {
 
   public onSubmit() {
 
-    // Update password
-    if (this.formProfile.value.password && this.formProfile.value.confirmPassword
-      && (this.formProfile.value.password === this.formProfile.value.confirmPassword)) {
-      this.authService.updatePassword(this.formProfile.value.password)
-      .catch(
-        error => {
-          this.profileErrors = error.message;
-        }
-      );
+    if (this.formProfile.value.password !== this.formProfile.value.confirmPassword) {
+      this.profileErrors = 'Passwords don\'t match!';
+      this.formProfile.controls.password.setErrors({ password: true });
+      this.formProfile.controls.confirmPassword.setErrors({ confirmPassword: true });
+    } else {
+
+      // Update password
+      if (this.formProfile.value.password && this.formProfile.value.confirmPassword
+        && (this.formProfile.value.password === this.formProfile.value.confirmPassword)) {
+        this.authService.updatePassword(this.formProfile.value.password)
+          .catch(
+            error => {
+              this.profileErrors = error.message;
+            }
+          );
+      }
+
     }
+
   }
 
   ngOnDestroy() {
