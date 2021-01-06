@@ -16,7 +16,7 @@
     </h3>
     <h4 class="product-price"><app-price [product]="product"></app-price></h4>
     <!-- *ngIf="displayMode === 'list'" -->
-    <!-- <p  class="hidden-xs-down">{{product.description}}</p> -->
+   <div  class="hidden-xs-down description">{{product.description}}</div> 
     <div class="product-buttons">
       <button class="btn btn-primary btn-sm" (click)="onAddToCart()">Add to Cart</button>
 

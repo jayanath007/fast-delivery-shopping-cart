@@ -1,6 +1,16 @@
 @import '~scss/helpers/variables';
 @import '~scss/helpers/mixins';
 
+
+.description {
+    height: 3em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+
+
 .product-card {
   display: block;
   position: relative;
@@ -25,10 +35,10 @@
     margin-top: 30px;
     margin-bottom: 10px;
 
-    > img {
+    >img {
       display: block;
       width: 100%;
-      height:260px;
+      height: 260px;
     }
 
     &.loading {
@@ -44,9 +54,10 @@
       size: $product-title-font-size;
       weight: normal;
     }
+
     text-align: center;
 
-    > a {
+    >a {
       transition: color .3s;
       color: $product-title-color;
       text-decoration: none;
@@ -65,9 +76,10 @@
       size: $product-price-font-size;
       weight: 500;
     }
+
     text-align: center;
 
-    > del {
+    >del {
       margin-right: 5px;
       color: $gray;
     }
@@ -77,7 +89,7 @@
     padding: 12px 0 8px;
     text-align: center;
 
-    > .btn {
+    >.btn {
       margin: 0 4px;
 
       &.btn-wishlist {
@@ -86,11 +98,13 @@
         padding-left: 1px;
         border-radius: 50%;
 
-        > i {
+        >i {
           font-size: 1.2em;
         }
 
-        &.active { color: $brand-danger; }
+        &.active {
+          color: $brand-danger;
+        }
       }
     }
   }
@@ -111,6 +125,7 @@
         display: table-cell;
         vertical-align: middle;
       }
+
       .product-thumb {
         position: relative;
         width: 270px;
@@ -133,9 +148,10 @@
             top: 20px;
             bottom: 0;
           }
+
           border-top: 1px solid $border-color;
 
-          > .btn {
+          >.btn {
             margin: 0;
             margin-right: 8px;
           }
