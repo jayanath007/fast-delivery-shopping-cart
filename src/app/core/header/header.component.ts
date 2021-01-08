@@ -36,6 +36,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
     e.preventDefault();
   }
 
+  public onLogIn(e: Event) {
+    this.router.navigate(['/login']);
+    e.preventDefault();
+  }
+
+  public onRegistration(e: Event) {
+    this.router.navigate(['/user-registration']);
+    e.preventDefault();
+  }
+
+  
+
   public onMenuToggle(e: Event) {
     this.offcanvasService.openOffcanvasNavigation();
     e.preventDefault();

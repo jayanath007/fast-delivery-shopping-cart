@@ -1,4 +1,3 @@
-
 <header class="navbar navbar-sticky navbar-header">
 
   <div class="site-branding">
@@ -42,6 +41,18 @@
                 <i class="icon-unlock"></i>Logout</a>
             </li>
           </ul>
+          <ul *ngIf="!user" class="toolbar-dropdown">
+            <li>
+              <a href="" (click)="onRegistration($event)">
+                <i class="icon-head"></i>Registration</a>
+            </li>
+            <li class="sub-menu-separator"></li>
+            <li>
+              <a href="" (click)="onLogIn($event)">
+                <i class="icon-lock"></i>Login</a>
+          </ul>
+
+
         </div>
 
         <app-toolbar-cart></app-toolbar-cart>
@@ -50,4 +61,3 @@
     </div>
   </div>
 </header>
-
