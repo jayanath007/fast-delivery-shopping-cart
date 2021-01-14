@@ -1,9 +1,9 @@
-<app-page-title title="Add/Edit Product" [children]="[{title: 'Add/Edit Product'}]"></app-page-title>
+<app-page-title title="Add/Edit Product" [children]="[{title: ''}]"></app-page-title>
 
 <div class="container">
   <div class="row mb-5">
     <div class="col-lg-8">
-      <h2 class="margin-bottom-1x">Add/Edit Product</h2>
+      <!-- <h2 class="margin-bottom-1x">Add/Edit Product</h2> -->
       <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
         <div class="form-group row">
           <label class="col-2 col-form-label" for="name">Product Name</label>

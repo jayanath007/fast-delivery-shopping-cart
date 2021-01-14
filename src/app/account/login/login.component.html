@@ -1,4 +1,4 @@
-<app-page-title title="Login" ></app-page-title>
+<app-page-title title="Login"></app-page-title>
 
 <div class="container padding-bottom-3x mb-2">
   <div class="row">
@@ -7,13 +7,14 @@
 
         <div class="row margin-bottom-1x">
           <div class="col-xl-4 col-md-6 col-sm-4">
-            <a class="btn btn-sm btn-block google-btn" (click)="onLoginWithGoogle()" >
-              <i class="socicon-googleplus"></i>&nbsp;Google+ login</a>
+            <a class="btn btn-sm btn-block google-btn" (click)="onLoginWithGoogle()">
+              <i class="socicon-google"></i>&nbsp;Gmail login</a>
           </div>
         </div>
 
         <h3 class="margin-bottom-1x">Login</h3>
-        <div class="form-group input-group" [ngClass]="{'has-danger': !loginForm.get('email').valid && loginForm.get('email').touched}">
+        <div class="form-group input-group"
+          [ngClass]="{'has-danger': !loginForm.get('email').valid && loginForm.get('email').touched}">
           <input class="form-control" formControlName="email" type="email" placeholder="Email" required="">
           <span class="input-group-addon">
             <i class="icon-mail"></i>
@@ -22,12 +23,14 @@
             Be sure to enter a valid, existing Email.
           </div>
         </div>
-        <div class="form-group input-group" [ngClass]="{'has-danger': !loginForm.get('password').valid && loginForm.get('password').touched}">
+        <div class="form-group input-group"
+          [ngClass]="{'has-danger': !loginForm.get('password').valid && loginForm.get('password').touched}">
           <input class="form-control" formControlName="password" type="password" placeholder="Password" required="">
           <span class="input-group-addon">
             <i class="icon-lock"></i>
           </span>
-          <div *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched" class="form-control-feedback">
+          <div *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched"
+            class="form-control-feedback">
             The entered password seems to be wrong..
           </div>
         </div>
@@ -37,19 +40,23 @@
         </div>
 
 
-        <div class="text-center text-sm-right">
-          <button [disabled]="!loginForm.valid"class="btn btn-primary margin-bottom-none" type="submit">Login</button>
+        <div class="text-center ">
+          <button [disabled]="!loginForm.valid" class="btn btn-primary margin-bottom-none" type="submit">Login</button>
         </div>
 
 
-  
-        <div class="text-center text-sm-left">
+        <div>
+
+        </div>
+
+        <div class="text-center " style="padding-top: 10px;" >
           <a class="navi-link registration" routerLink="/user-registration"> Not a Member? Register Here </a>
+        </div>
+        <div class="text-center" style="padding-top: 12px;">
           <a class="btn btn-success margin-bottom-none" routerLink="/user-registration">Registration</a>
         </div>
-       
       </form>
-    
+
     </div>
   </div>
 </div>

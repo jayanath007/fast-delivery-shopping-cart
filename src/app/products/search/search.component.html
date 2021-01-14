@@ -1,19 +1,56 @@
-
-
-<div class="input-group mb-3">
-  <div class="input-group-prepend hidden-sm-down" ngbDropdown #myDrop="ngbDropdown">
-    <button class="btn btn-outline-primary" type="button" data-toggle="dropdown"
-     aria-haspopup="true" aria-expanded="false" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()" >Cattergories</button>
-    <div ngbDropdownMenu class="dropdown-menu">
-      <button ngbDropdownItem>Action - 1</button>
-      <button ngbDropdownItem>Another Action</button>
-      <button ngbDropdownItem>Something else is here asds sdsdas</button>
+<div class="d-none d-sm-block">
+  <div class="input-group mb-3 ">
+    <div class="input-group-prepend " ngbDropdown #myDrop="ngbDropdown">
+      <button class="btn btn-outline-primary" type="button" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Categories</button>
+      <div ngbDropdownMenu class="dropdown-menu">
+        <button ngbDropdownItem>Action - 1</button>
+        <button ngbDropdownItem>Another Action</button>
+        <button ngbDropdownItem>Something else is here asds sdsdas</button>
+      </div>
+    </div>
+    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+    <div class="input-group-append">
+      <button class="btn btn-primary" type="button">
+        <i (click)="showSearch = true" class="icon-search"></i>
+      </button>
     </div>
   </div>
-  <input type="text" class="form-control" aria-label="Text input with dropdown button">
-  <div class="input-group-append">
-    <button class="btn btn-primary" type="button">
-      <i (click)="showSearch = true" class="icon-search"></i>
-    </button>
+</div>
+
+<div class="d-block d-sm-none">
+  <div class="row" style="padding-top: 5px">
+    <div class="col-6 col-sm-6">
+      <div ngbDropdown>
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Sales</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem>Action - 1</button>
+          <button ngbDropdownItem>Another Action</button>
+          <button ngbDropdownItem>Something else is here</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-6 col-sm-6">
+      <div ngbDropdown>
+        <button class="btn btn-outline-primary float-right" id="dropdownBasic1" ngbDropdownToggle>Categories</button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem>Action - 1</button>
+          <button ngbDropdownItem>Another Action</button>
+          <button ngbDropdownItem>Something else is here</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" style="padding-top: 20px; padding-left: 15px; padding-right: 15px;">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" aria-label="Text input with dropdown button">
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button">
+          <i (click)="showSearch = true" class="icon-search"></i>
+        </button>
+      </div>
+    </div>
   </div>
 </div>

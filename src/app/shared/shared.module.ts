@@ -5,23 +5,29 @@ import { FormsModule } from '@angular/forms';
 
 import { PriceComponent } from './price/price.component';
 import { PageTitleComponent } from '../core/page-title/page-title.component';
+import { PoupComponentComponent } from './poup-component/poup-component.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
         PriceComponent,
-        PageTitleComponent
+        PageTitleComponent,
+        PoupComponentComponent,
     ],
     imports: [
         CommonModule,
         AppRoutingModule,
         FormsModule
     ],
+    entryComponents: [PoupComponentComponent],
     exports: [
         PriceComponent,
         PageTitleComponent,
+        PoupComponentComponent,
         CommonModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+  
     ]
 })
 export class SharedModule {}
