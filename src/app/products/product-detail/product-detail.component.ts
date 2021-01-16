@@ -94,6 +94,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   public onAddToCart() {
     this.cartService.addItem(new CartItem(this.product, this.selectedQuantity));
+    this.router.navigate(['/cart']);
   }
 
   public onSelectQuantity(event) {
