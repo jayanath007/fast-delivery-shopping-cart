@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
-declare var paypal;
 @Component({
   selector: 'app-checkout-footer',
   templateUrl: './footer.component.html',
