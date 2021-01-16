@@ -54,13 +54,13 @@
         <span class="text-muted">Phone:</span>{{customer.phone}}</li>
     </ul>
   </div>
-  <div class="col-sm-6">
+  <!-- <div class="col-sm-6">
     <h5>Payment method:</h5>
     <ul class="list-unstyled">
       <li>
         <span class="text-muted">{{ paymentMethod }}</span></li>
     </ul>
-  </div>
+  </div> -->
 </div>
 <div [hidden]="paidFor" #paypal></div>
-<app-checkout-footer [buttons]="['back', 'completeOrder']" (back)="onBack()" (completeOrder)="onCompleteOrder()"></app-checkout-footer>
+<app-checkout-footer [buttons]="['back']" (back)="onBack()" ></app-checkout-footer>

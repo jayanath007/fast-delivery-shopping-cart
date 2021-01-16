@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CheckoutService } from '../shared/checkout.service';
 import { Customer } from '../../models/customer.model';
+import { CartService } from '../../cart/shared/cart.service';
 
 @Component({
   selector: 'app-checkout-shipping',
@@ -10,9 +11,10 @@ import { Customer } from '../../models/customer.model';
 })
 export class ShippingComponent implements OnInit {
   public formShipping: FormGroup;
-  public shippingMethods: {method: string, time: string, fee: number, value: string}[];
+  public shippingMethods: { method: string, time: string, fee: number, value: string }[];
 
-  constructor(private checkoutService: CheckoutService) { }
+  constructor(private checkoutService: CheckoutService, 
+    private cartService: CartService) { }
 
   ngOnInit() {
     this.shippingMethods = [
@@ -40,6 +42,9 @@ export class ShippingComponent implements OnInit {
 
   public onContinue() {
     this.checkoutService.setShippingMethod(this.formShipping.controls.shippingMethod.value);
+    var item = this.shippingMethods.filter(p => p.value == this.formShipping.controls.shippingMethod.value)[0];
+    this.cartService.setShippingAmount(item.fee);
+    this.checkoutService.setShipping(item);
     this.checkoutService.nextStep();
   }
 

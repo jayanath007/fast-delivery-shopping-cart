@@ -14,6 +14,7 @@ import { CartItem } from '../../models/cart-item.model';
 import { Customer } from '../../models/customer.model';
 import { Order } from '../../models/order.model';
 import { User } from '../../models/user.model';
+import { Shipping } from '../../models/shipping.model';
 declare var paypal;
 @Component({
   selector: 'app-checkout-review',
@@ -23,10 +24,11 @@ declare var paypal;
 export class ReviewComponent implements OnInit, OnDestroy {
   @ViewChild('paypal', { static: true }) paypalElement: ElementRef;
   items: CartItem[];
-  itemsNames :string;
+  itemsNames: string;
   total: number;
   customer: Customer;
   paymentMethod: string;
+  shipping: Shipping;
   unsubscribe$ = new Subject();
   user: User;
   product = {
@@ -57,7 +59,7 @@ export class ReviewComponent implements OnInit, OnDestroy {
       .subscribe((items: CartItem[]) => {
         this.items = items;
         this.total = this.cartService.getTotal();
-     
+
       });
     this.customer = this.checkoutService.getOrderInProgress().customer;
     this.checkoutService.orderInProgressChanged
@@ -65,36 +67,40 @@ export class ReviewComponent implements OnInit, OnDestroy {
       .subscribe((order: Order) => {
         this.customer = order.customer;
         this.paymentMethod = order.paymentMethod;
+        this.shipping = order.shipping;
       });
   }
 
   paypalPaymentRender() {
     paypal
-    .Buttons({
-      createOrder: (data, actions) => {
-        return actions.order.create({
-          purchase_units: [
-            {
-              description: this.itemsNames,
-              amount: {
-                currency_code: 'USD',
-                value: this.total,
+      .Buttons({
+        createOrder: (data, actions) => {
+
+          var totalAmount = this.cartService.getTotalBuilAmount();
+
+          return actions.order.create({
+            purchase_units: [
+              {
+                description: this.itemsNames,
+                amount: {
+                  currency_code: 'USD',
+                  value: totalAmount,
+                }
               }
-            }
-          ]
-        });
-      },
-      onApprove: async (data, actions) => {
-        const order = await actions.order.capture();
-        this.paidFor = true;
-        console.log(order);
-        this.onCompleteOrder();
-      },
-      onError: err => {
-        console.log(err);
-      }
-    })
-    .render(this.paypalElement.nativeElement);
+            ]
+          });
+        },
+        onApprove: async (data, actions) => {
+          const order = await actions.order.capture();
+          this.paidFor = true;
+          console.log(order);
+          this.onCompleteOrder();
+        },
+        onError: err => {
+          console.log(err);
+        }
+      })
+      .render(this.paypalElement.nativeElement);
   }
 
 

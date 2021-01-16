@@ -2,6 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Order } from '../../models/order.model';
 import { Customer } from '../../models/customer.model';
 import { CartItem } from '../../models/cart-item.model';
+import { Shipping } from '../../models/shipping.model';
 
 @Injectable()
 export class CheckoutService {
@@ -41,6 +42,11 @@ export class CheckoutService {
 
   public setShippingMethod(shippingMethod: string) {
     this.orderInProgress.shippingMethod = shippingMethod;
+    this.orderInProgressChanged.emit(this.orderInProgress);
+  }
+
+  public setShipping(shipping: Shipping) {
+    this.orderInProgress.shipping = shipping;
     this.orderInProgressChanged.emit(this.orderInProgress);
   }
 

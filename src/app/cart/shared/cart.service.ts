@@ -8,6 +8,8 @@ export class CartService {
   // Init and generate some fixtures
   private cartItems: CartItem[];
   public itemsChanged: EventEmitter<CartItem[]> = new EventEmitter<CartItem[]>();
+  private shippingAmount = 0;
+
 
   constructor(private messageService: MessageService) {
     this.cartItems = [];
@@ -18,7 +20,7 @@ export class CartService {
   }
 
   public getItemNames() {
-    return this.cartItems.map(p=>p.product.name).toString();
+    return this.cartItems.map(p => p.product.name).toString();
   }
 
   // Get Product ids out of CartItem[] in a new array
@@ -77,6 +79,16 @@ export class CartService {
       total += cartItem.amount * cartItem.product.price;
     });
     return total;
+  }
+  public setShippingAmount(amount) {
+    this.shippingAmount = amount;
+  }
+  public getShippingAmount() {
+   return this.shippingAmount;
+  }
+
+  public getTotalBuilAmount() {
+    return this.shippingAmount +  this.getTotal();
   }
 
 }
