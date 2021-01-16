@@ -17,6 +17,10 @@ export class CartService {
     return this.cartItems.slice();
   }
 
+  public getItemNames() {
+    return this.cartItems.map(p=>p.product.name).toString();
+  }
+
   // Get Product ids out of CartItem[] in a new array
   private getItemIds() {
     return this.getItems().map(cartItem => cartItem.product.id);

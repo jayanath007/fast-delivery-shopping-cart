@@ -1,11 +1,14 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
+declare var paypal;
 @Component({
   selector: 'app-checkout-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
-export class FooterComponent {
+export class FooterComponent  {
+
+
   @Input() buttons: string[];
   @Input() continueEnabled: boolean;
   @Output() back: EventEmitter<void> = new EventEmitter<void>();
@@ -20,7 +23,11 @@ export class FooterComponent {
     this.continue.emit();
   }
 
+
+
   onCompleteOrder(e: Event) {
     this.completeOrder.emit();
   }
+  
+
 }

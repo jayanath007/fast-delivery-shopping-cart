@@ -35,6 +35,7 @@ export class ProductsListItemComponent implements OnInit, OnDestroy {
 
   public onAddToCart() {
     this.cartService.addItem(new CartItem(this.product, 1));
+    
   }
 
   public onImageLoad() {

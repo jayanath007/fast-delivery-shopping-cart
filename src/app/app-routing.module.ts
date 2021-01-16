@@ -52,12 +52,11 @@ const routes: Routes = [
     component: ConfirmPasswordResetComponent,
     data: { title: 'Confirm Email Address' }
   },
-  // { path: 'products/:id', component: ProductDetailComponent },
-  // { path: 'cart', component: CartComponent },
-  // { path: 'checkout', component: CheckoutComponent },
-  // { path: 'order-complete', component: CompleteComponent },
+  { path: 'products/:id', component: ProductDetailComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'checkout', component: CheckoutComponent },
+  { path: 'order-complete', component: CompleteComponent },
   { path: '**', component: PageNotFoundComponent },
-
 ];
 
 @NgModule({
