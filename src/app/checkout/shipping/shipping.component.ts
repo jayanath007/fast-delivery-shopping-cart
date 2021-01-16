@@ -17,13 +17,13 @@ export class ShippingComponent implements OnInit {
   ngOnInit() {
     this.shippingMethods = [
       {
-        method: 'Swiss Post Priority',
-        time: '1 - 2 days',
+        method: 'Same Day Delevery',
+        time: '0 - 1 days',
         fee: 11,
         value: 'priority'
       },
       {
-        method: 'Swiss Post Economy',
+        method: 'Nomal Post Delevery',
         time: 'up to one week',
         fee: 9,
         value: 'economy'

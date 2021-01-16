@@ -1,10 +1,8 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-
 import { AuthService } from '../../account/shared/auth.service';
 import { CartService } from '../../cart/shared/cart.service';
-
 import { CartItem } from '../../models/cart-item.model';
 import { Product } from '../../models/product.model';
 import { User } from '../../models/user.model';
@@ -23,7 +21,8 @@ export class ProductsListItemComponent implements OnInit, OnDestroy {
 
   constructor(
     private cartService: CartService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -35,7 +34,8 @@ export class ProductsListItemComponent implements OnInit, OnDestroy {
 
   public onAddToCart() {
     this.cartService.addItem(new CartItem(this.product, 1));
-    
+    this.router.navigate(['/cart']);
+
   }
 
   public onImageLoad() {

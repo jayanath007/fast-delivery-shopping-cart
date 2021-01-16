@@ -37,7 +37,7 @@ export class CartService {
       this.messageService.add('Amount in cart changed for: ' + item.product.name);
     } else {
       this.cartItems.push(item);
-      this.messageService.add('Added to cart: ' + item.product.name);
+      // this.messageService.add('Added to cart: ' + item.product.name);
     }
     this.itemsChanged.emit(this.cartItems.slice());
   }

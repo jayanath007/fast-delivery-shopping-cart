@@ -31,6 +31,7 @@ const routes: Routes = [
   },
   { path: 'register-login', component: RegisterLoginComponent },
   { path: 'user-registration', component: UserRegistrationComponent },
+  { path: 'become-merchant', component: UserRegistrationComponent },
   { path: 'login', component: LoginComponent },
 
   {

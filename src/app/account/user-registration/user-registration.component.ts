@@ -32,6 +32,10 @@ export class UserRegistrationComponent  implements OnInit {
 
 
   private initRegisterForm() {
+
+
+
+    
     this.registerForm = new FormGroup({
       email: new FormControl(null, [Validators.required, Validators.email]),
       password: new FormControl(null, Validators.required),
