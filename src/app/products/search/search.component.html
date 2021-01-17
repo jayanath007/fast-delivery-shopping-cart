@@ -1,3 +1,7 @@
+<ng-template #rt let-r="result" let-t="term">
+  <ngb-highlight  [result]="r.name" [term]="t.id"></ngb-highlight>
+</ng-template>
+
 <div class="d-none d-sm-block">
   <div class="input-group mb-3 ">
     <div class="input-group-prepend " ngbDropdown #myDrop="ngbDropdown">
@@ -9,14 +13,19 @@
         <button ngbDropdownItem>Something else is here asds sdsdas</button>
       </div>
     </div>
+
+
     <input
     id="typeahead-focus"
     type="text"
     class="form-control"
     [(ngModel)]="model"
     [ngbTypeahead]="search"
+    [resultTemplate]="rt"
+      [inputFormatter]="formatter"
     (focus)="focus$.next($any($event).target.value)"
     (click)="click$.next($any($event).target.value)"
+    (selectItem)="searchSelect($event)"
     #instance="ngbTypeahead"
   />
     <div class="input-group-append">

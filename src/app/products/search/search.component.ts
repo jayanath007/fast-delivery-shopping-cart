@@ -6,6 +6,7 @@ import {
   Output,
   ViewChild
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, Subject, merge } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map, switchMap } from 'rxjs/operators';
@@ -20,7 +21,7 @@ import { ProductService } from '../shared/product.service';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService ,private router: Router) { }
 
   model: any;
 
@@ -37,10 +38,17 @@ export class SearchComponent implements OnInit {
       filter(term => !!term),
       switchMap(term => this.productService.findProducts(term)),
       map((data) => {
-        return data.map(item => item.name);
+        console.log(data);
+        return data.map(item => { return { name: item.name, id: item.id } });
       })
     );
   }
+
+  searchSelect(event){
+     this.router.navigate(['/products/'+ event.item.id ]);
+  }
+
+  formatter = (x: {name: string}) => x.name;
 
   ngOnInit() {
   }
