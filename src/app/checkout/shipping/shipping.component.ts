@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CheckoutService } from '../shared/checkout.service';
-import { Customer } from '../../models/customer.model';
 import { CartService } from '../../cart/shared/cart.service';
 
 @Component({
@@ -19,19 +18,29 @@ export class ShippingComponent implements OnInit {
   ngOnInit() {
     this.shippingMethods = [
       {
-        method: 'Same Day Delevery',
-        time: '0 - 1 days',
-        fee: 11,
-        value: 'priority'
+        method: 'Same Day',
+        time: 'Same Day',
+        fee: 4.99,
+        value: 'sameDay'
       },
       {
-        method: 'Nomal Post Delevery',
-        time: 'up to one week',
-        fee: 9,
-        value: 'economy'
+        method: 'Purolator',
+        time: '1 - 3 days',
+        fee: 11.99,
+        value: 'purolator'
+      },
+      {
+        method: 'UPS',
+        time: '2 - 3 days',
+        fee: 12.99,
+        value: 'ups'
       }
     ];
     this.formShipping = new FormGroup({
+      postcode: new FormControl(
+        null,
+        Validators.required
+      ),
       'shippingMethod': new FormControl(this.shippingMethods[1].value, Validators.required)
     });
   }
