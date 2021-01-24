@@ -130,7 +130,8 @@
 
   <app-checkout-footer [buttons]="['backToCart', 'continue']" (continue)="onContinue()"
   [continueEnabled]="formShipping.valid &&
-  ( formShipping.get('shippingMethod').value !== 'sameDay' || ( !!formShipping.get('deliveryTime').value && !!formShipping.get('deliveryDate').value) )"></app-checkout-footer>
+  ( formShipping.get('shippingMethod').value !== 'sameDay' 
+  || ( !!formShipping.get('deliveryTime').value && !!formShipping.get('deliveryDate').value) )"></app-checkout-footer>
 
 </form>
 
