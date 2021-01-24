@@ -91,5 +91,5 @@
   </div>
 </form>
 
-<app-checkout-footer [buttons]="['back', 'continue']"  (continue)="onContinue()" [continueEnabled]="formAddress.valid"></app-checkout-footer>
+<app-checkout-footer [buttons]="['back', 'continue']" (back)="onBack()" (continue)="onContinue()" [continueEnabled]="formAddress.valid"></app-checkout-footer>
 <!-- <app-checkout-footer [buttons]="['backToCart', 'continue']"  (continue)="onContinue()" [continueEnabled]="formAddress.valid"></app-checkout-footer> -->

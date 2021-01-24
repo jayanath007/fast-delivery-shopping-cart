@@ -65,6 +65,9 @@ export class AddressComponent implements OnInit, OnDestroy {
     this.checkoutService.setCustomer(this.formAddress.value);
     this.checkoutService.nextStep();
   }
+  public onBack() {
+    this.checkoutService.previousStep();
+  }
 
   // Debug: Fill Form Helper MEthod
   public onFillForm(event: Event) {
