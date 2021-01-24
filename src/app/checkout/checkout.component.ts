@@ -18,7 +18,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // this.steps = ['1. Address', '2. Shipping', '3. Payment', '4. Review'];
-    this.steps = ['1. Shipping', '2. Address', '3.Payment'];
+    // this.steps = ['1.Shipping','2.Time Slot', '3.Address', '4.Payment'];
+  this.steps = ['1.Shipping', '2.Address', '3.Payment'];
     this.activeStep = this.checkoutService.activeStep;
     this.checkoutSubscription = this.checkoutService.stepChanged.subscribe((step: number) => {
       this.activeStep = step;

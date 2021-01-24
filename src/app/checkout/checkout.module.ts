@@ -10,6 +10,8 @@ import { SharedModule } from '../shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CompleteComponent } from './complete/complete.component';
 import { MapModule } from '../map/map.module';
+import { TimeSlotComponent } from './time-slot/time-slot.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [
@@ -20,13 +22,15 @@ import { MapModule } from '../map/map.module';
         ReviewComponent,
         ShippingComponent,
         SidebarComponent,
-        CompleteComponent
+        CompleteComponent,
+        TimeSlotComponent
     ],
     imports: [
         SharedModule,
         FormsModule,
         ReactiveFormsModule,
-        MapModule
+        MapModule,
+        NgbModule,
     ],
     exports: [
         SharedModule,

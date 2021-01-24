@@ -1,14 +1,15 @@
+
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CheckoutService } from '../shared/checkout.service';
 import { CartService } from '../../cart/shared/cart.service';
 
 @Component({
-  selector: 'app-checkout-shipping',
-  templateUrl: './shipping.component.html',
-  styleUrls: ['./shipping.component.scss']
+  selector: 'app-time-slot',
+  templateUrl: './time-slot.component.html',
+  styleUrls: ['./time-slot.component.scss']
 })
-export class ShippingComponent implements OnInit {
+export class TimeSlotComponent implements OnInit {
   public formShipping: FormGroup;
   public shippingMethods: { method: string, time: string, fee: number, value: string }[];
 
@@ -40,12 +41,6 @@ export class ShippingComponent implements OnInit {
       postcode: new FormControl(
         null,
         Validators.required
-      ),
-      deliveryDate: new FormControl(
-        new Date(),
-      ),
-      deliveryTime: new FormControl(
-        '',
       ),
       'shippingMethod': new FormControl(this.shippingMethods[1].value, Validators.required)
     });
