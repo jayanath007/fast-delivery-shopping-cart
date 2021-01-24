@@ -1,6 +1,21 @@
-<h4>Billing Address</h4>
-<hr class="padding-bottom-1x">
+
+
+
+
+
 <form *ngIf="formShipping" [formGroup]="formShipping">
+  <hr class="padding-bottom-1x">
+  <h4>Please select your postal code view shipping options</h4>
+  <hr class="padding-bottom-1x">
+  <div class="row">
+    <div class="col-sm-6">
+          <app-map [height]=300 ></app-map>
+    </div>
+  </div>
+
+  <br>
+
+
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group"
@@ -8,18 +23,13 @@
         <label for="postcode">Post Code</label>
         <input class="form-control" type="text" id="postcode" name="postcode" formControlName="postcode">
         <div class="form-control-feedback"
-          *ngIf="formShipping.get('postcode').invalid && formShipping.get('postcode').touched">Please enter your postcode!
+          *ngIf="formShipping.get('postcode').invalid && formShipping.get('postcode').touched">Please enter your
+          postcode!
         </div>
       </div>
     </div>
-    <div class="col-sm-12">
-      <app-map></app-map>
-    </div>
   </div>
-  <br>
-  <h4>Base on your location hear are your shipping options</h4>
-  <hr class="padding-bottom-1x">
-  <div class="row">
+  <div class="col-sm-12" *ngIf="!formShipping.get('postcode').invalid">
     <div class="table-responsive">
       <table class="table">
         <thead class="thead-default">
@@ -49,19 +59,12 @@
       </table>
     </div>
   </div>
+  <!-- </div> -->
 
-
-  <!-- <h4>Shipping Address</h4>
-  <hr class="padding-bottom-1x">
-  <div class="form-group">
-    <label class="custom-control custom-checkbox">
-      <input class="custom-control-input" type="checkbox" checked>
-      <span class="custom-control-indicator"></span>
-      <span class="custom-control-description">for testing</span>
-      <a href="" (click)="onFillForm($event)">Debug: Fill out form</a>
-    </label>
-  </div> -->
 </form>
 
 <app-checkout-footer [buttons]="['backToCart', 'continue']" (continue)="onContinue()"
   [continueEnabled]="formShipping.valid"></app-checkout-footer>
+
+<!-- 
+  <hr class="padding-bottom-1x"> -->
