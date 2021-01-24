@@ -42,12 +42,12 @@ export class ShippingComponent implements OnInit {
         Validators.required
       ),
       deliveryDate: new FormControl(
-        new Date(),
+        null,
       ),
       deliveryTime: new FormControl(
-        '',
+        null,
       ),
-      'shippingMethod': new FormControl(this.shippingMethods[1].value, Validators.required)
+      'shippingMethod': new FormControl(this.shippingMethods[0].value, Validators.required)
     });
   }
 
@@ -56,7 +56,7 @@ export class ShippingComponent implements OnInit {
   }
 
   public onContinue() {
-    this.checkoutService.setShippingMethod(this.formShipping.controls.shippingMethod.value);
+    this.checkoutService.setShippingMethod(this.formShipping.value);
     var item = this.shippingMethods.filter(p => p.value == this.formShipping.controls.shippingMethod.value)[0];
     this.cartService.setShippingAmount(item.fee);
     this.checkoutService.setShipping(item);

@@ -13,6 +13,9 @@ export class Order {
     public shippingMethod: string = '',
     public paymentMethod: string = '',
     public shipping: Shipping = null,
+    public deliveryDate,
+    public deliveryTime: string = '',
+
   ) { }
 }
 

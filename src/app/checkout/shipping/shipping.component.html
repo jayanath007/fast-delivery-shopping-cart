@@ -1,11 +1,20 @@
-<form *ngIf="formShipping" [formGroup]="formShipping">
+
+
+
+
+<form  [formGroup]="formShipping">
+
+
+
+
+
   <h4>Please select your postal code view shipping options</h4>
   <hr class="padding-bottom-1x">
-  <!-- <div class="row">
+ <div class="row">
     <div class="col-sm-6">
           <app-map [height]=300 ></app-map>
     </div>
-  </div> -->
+  </div> 
 
   <br>
 
@@ -24,7 +33,8 @@
     </div>
   </div>
 
-  <h4 *ngIf="!formShipping.get('postcode').invalid">based on your location here are your shipping opyions</h4>
+  <h4 [hidden]="formShipping.get('postcode').invalid">based on your location here are your shipping options</h4>
+  <hr class="padding-bottom-1x">
 
   <div class="col-sm-12">
     <div class="table-responsive">
@@ -37,7 +47,7 @@
             <th></th>
           </tr>
         </thead>
-        <tbody *ngIf="!formShipping.get('postcode').invalid">
+        <tbody [hidden]="formShipping.get('postcode').invalid" >
           <tr *ngFor="let shippingMethod of shippingMethods">
             <td class="align-middle">
               <span class="text-medium">{{shippingMethod.method}}</span>
@@ -56,61 +66,55 @@
       </table>
     </div>
   </div>
-  <!-- </div> -->
 
-  <div *ngIf="formShipping.get('shippingMethod').value === 'sameDay'">
+
+
+
+  
+  <div   [hidden]="formShipping.get('postcode').invalid || formShipping.get('shippingMethod').value !== 'sameDay'">
+
+    <h4 >Please select the Delivery date and time for sameDay</h4>
+    <hr class="padding-bottom-1x">
 
     <div class="row">
       <div class="col-sm-6">
-        <div class="form-group"
-          [ngClass]="{'has-danger': formShipping.get('deliveryDate').invalid && formShipping.get('deliveryDate').touched}">
+
+
+
+        <div class="form-group">
           <label for="deliveryDate">Delivery Date</label>
+          <div class="input-group">
+            <input formControlName="deliveryDate" [ngClass]="{'has-danger': formShipping.get('deliveryDate').invalid && formShipping.get('deliveryDate').touched}" class="form-control" placeholder="yyyy-mm-dd"
+                   name="dp"  ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">
+                   <i class="pe-7s-date"></i>
+              </button>
+            </div>
 
-
-          <!-- <ngb-datepicker #dp  (navigate)="date = $event.next" name="deliveryDate" formControlName="deliveryDate"></ngb-datepicker> -->
-          <input class="form-control" placeholder="yyyy-mm-dd" id="deliveryDate" name="deliveryDate" formControlName="deliveryDate"
-          name="dp"  ngbDatepicker #d="ngbDatepicker">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-          </div>
-
-          <!-- <input class="form-control" type="text" id="deliveryDate" name="deliveryDate" formControlName="deliveryDate"> -->
-          <div class="form-control-feedback"
-            *ngIf="formShipping.get('deliveryDate').invalid && formShipping.get('deliveryDate').touched">Please enter
-            Delivery Date!
           </div>
         </div>
+
       </div>
       <div class="col-sm-6">
           <div class="form-group"
             [ngClass]="{'has-danger': formShipping.get('deliveryTime').invalid && formShipping.get('deliveryTime').touched}">
             <label for="deliveryTime">Delivery Time</label>
-            <!-- (change)="changeFruit($event)" -->
             <select class="custom-select" formControlName="deliveryTime">
-              <option value="0">12:00 am</option>
-              <option value="1">1:00 am</option>
-              <option value="2">2:00 am</option>
-              <option value="3">3:00 am</option>
-              <option value="4">4:00 am</option>
-              <option value="5">5:00 am</option>
-              <option value="6">6:00 am</option>
-              <option value="7">7:00 am</option>
-              <option value="8">8:00 am</option>
-              <option value="9">9:00 am</option>
-              <option value="10">10:00 am</option>
-              <option value="11">11:00 am</option>
-              <option value="12">12:00 pm</option>
-              <option value="13">1:00 pm</option>
-              <option value="14">2:00 pm</option>
-              <option value="15">3:00 pm</option>
-              <option value="16">4:00 pm</option>
-              <option value="17">5:00 pm</option>
-              <option value="18">6:00 pm</option>
-              <option value="19">7:00 pm</option>
-              <option value="20">8:00 pm</option>
-              <option value="21">9:00 pm</option>
-              <option value="22">10:00 pm</option>
-              <option value="23">11:00 pm</option>
+       
+              <option value="8:00 am">8:00 am</option>
+              <option value="9:00 am">9:00 am</option>
+              <option value="10:00 am">10:00 am</option>
+              <option value="11:00 am">11:00 am</option>
+              <option value="12:00 pm">12:00 pm</option>
+              <option value="1:00 pm">1:00 pm</option>
+              <option value="2:00 pm">2:00 pm</option>
+              <option value="3:00 pm">3:00 pm</option>
+              <option value="4:00 pm">4:00 pm</option>
+              <option value="5:00 pm">5:00 pm</option>
+              <option value="6:00 pm">6:00 pm</option>
+              <option value="7:00 pm">7:00 pm</option>
+              <option value="8:00 pm">8:00 pm</option>
             </select>
 
             <div class="form-control-feedback"
@@ -124,13 +128,10 @@
 
   </div>
 
-
-
+  <app-checkout-footer [buttons]="['backToCart', 'continue']" (continue)="onContinue()"
+  [continueEnabled]="formShipping.valid &&
+  ( formShipping.get('shippingMethod').value !== 'sameDay' || ( !!formShipping.get('deliveryTime').value && !!formShipping.get('deliveryDate').value) )"></app-checkout-footer>
 
 </form>
 
-<app-checkout-footer [buttons]="['backToCart', 'continue']" (continue)="onContinue()"
-  [continueEnabled]="formShipping.valid"></app-checkout-footer>
 
-<!-- 
-  <hr class="padding-bottom-1x"> -->

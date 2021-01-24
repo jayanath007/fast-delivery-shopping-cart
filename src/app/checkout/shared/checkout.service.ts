@@ -40,8 +40,11 @@ export class CheckoutService {
     this.orderInProgressChanged.emit(this.orderInProgress);
   }
 
-  public setShippingMethod(shippingMethod: string) {
-    this.orderInProgress.shippingMethod = shippingMethod;
+  public setShippingMethod(item) {
+    this.orderInProgress.shippingMethod = item.shippingMethod;
+    this.orderInProgress.deliveryDate = item.deliveryDate;
+    this.orderInProgress.deliveryTime = item.deliveryTime;
+
     this.orderInProgressChanged.emit(this.orderInProgress);
   }
 
